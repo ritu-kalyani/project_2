@@ -3,7 +3,7 @@ session_start();
 require_once "../submodules/_dbconnect.php";
 
 $item = $_GET["id"];
-$sql = "SELECT * FROM product WHERE pid='" . $item . "'";
+$sql = "SELECT * FROM Products_menu WHERE pid='" . $item . "'";
 $result = $conn->query($sql);
     
 $row = $result->fetch_assoc();

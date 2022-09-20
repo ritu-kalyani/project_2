@@ -7,7 +7,7 @@
     $phoneNo = $_GET["phoneNo"];
     $total = $_GET["total"];
 
-    $userID = $conn->query("SELECT uid FROM user WHERE uname='" . $_SESSION["uname"] . "'")->fetch_assoc()["uid"];
+    $userID = $conn->query("SELECT uid FROM user_info WHERE username='" . $_SESSION["username"] . "'")->fetch_assoc()["uid"];
 
     $insertOrder = "INSERT INTO orders(uid, total, address, phone) VALUES ('" . $userID . "', '" . $total . "', '" . $address . "', '" . $phoneNo ."')";
     $exec = $conn->query($insertOrder);

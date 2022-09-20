@@ -12,19 +12,19 @@
         require_once "submodules/_dbconnect.php";
 
         if(isset($_POST['signup'])){
-          $email = mysqli_real_escape_string($conn,$_POST['registerEmail']);
-          $uname = mysqli_real_escape_string($conn,$_POST['registerUsername']);
-          $pass = mysqli_real_escape_string($conn,$_POST['registerPassword']);
-          $cpass = mysqli_real_escape_string($conn,$_POST['registerCPassword']);
+          $email = mysqli_real_escape_string($conn,$_POST['Email']);
+          $uname = mysqli_real_escape_string($conn,$_POST['Username']);
+          $pass = mysqli_real_escape_string($conn,$_POST['Password']);
+          $cpass = mysqli_real_escape_string($conn,$_POST['CPassword']);
       
           $pass_hash = password_hash($pass,PASSWORD_BCRYPT);
           $cpass_hash = password_hash($cpass,PASSWORD_BCRYPT);
 
-          $namequery = "select * from user WHERE uname = '$uname'";
+          $namequery = "select * from user_info WHERE username = '$uname'";
           $query = mysqli_query($conn,$namequery);
-          $namecount = mysqli_num_rows($query);
+          $count = mysqli_num_rows($query);
 
-          if($namecount > 0){
+          if($count > 0){
             ?>
             <script>
                     swal({
@@ -38,11 +38,11 @@
         
           }else{
           if($pass == $cpass){
-              $insert = "Insert into user( uname, password, email) VALUES ('$uname', '$pass_hash','$email')";
+              $insert = "Insert into user_info( username, password, email) VALUES ('$uname', '$pass_hash','$email')";
               $finalquery = mysqli_query($conn,$insert);
   
               if($finalquery){
-                  $sql = "select uid from user where uname='". $uname. "'";
+                  $sql = "select uid from user_info where username='". $uname. "'";
                   $result = mysqli_query($conn, $sql);
 
                   $row = mysqli_fetch_assoc($result);
@@ -107,13 +107,13 @@
   <form class="modal-content" action="" method="post">
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="registerUsername" required>
+      <input type="text" placeholder="Enter Username" name="Username" required>
       <label for="email"><b>Email ID</b></label>
-      <input type="text" placeholder="Enter Email id" name="registerEmail" required>
+      <input type="text" placeholder="Enter Email id" name="Email" required>
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password"  minlength="6" name="registerPassword" autocomplete="on" required>
+      <input type="password" placeholder="Enter Password"  minlength="6" name="Password" autocomplete="on" required>
       <label for="psw"><b>Confirm Password</b></label>
-      <input type="password" placeholder="Enter Confirm Password"  name="registerCPassword" autocomplete="on" required>
+      <input type="password" placeholder="Enter Confirm Password"  name="CPassword" autocomplete="on" required>
         
       <button type="submit"  name="signup">Register</button>
       <label>

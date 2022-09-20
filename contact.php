@@ -19,7 +19,7 @@
           $message = $_POST['message'];
           $email = $_POST['email'];
           
-          $sql = "INSERT INTO contact VALUES ('" . $name . "',  '" . $email . "', '" . $message . "')";
+          $sql = "INSERT INTO contact_table VALUES ('" . $name . "',  '" . $email . "', '" . $message . "')";
           if ($conn->query($sql) == TRUE) {
               echo '
               <script>

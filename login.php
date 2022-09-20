@@ -18,24 +18,24 @@ error_reporting(E_ERROR | E_PARSE);
         require_once "submodules/_dbconnect.php";
 
         if(isset($_POST['login'])){
-          $username = $_POST['loginUsername'];
-          $pass = $_POST['loginPassword'];
+          $username = $_POST['loginUser'];
+          $password = $_POST['Password'];
 
-          $true_username = "select * from user where uname ='$username'";
+          $true_username = "select * from user_info where username ='$username'";
           $sql = mysqli_query($conn,$true_username);
 
-          $username_count = mysqli_num_rows($sql);
+          $count = mysqli_num_rows($sql);
 
-          if($username_count >0){
+          if($count >0){
 
           while($row = mysqli_fetch_array($sql)){
-                  if(password_verify($pass ,$row['password'])){
-                    $_SESSION['uname'] = $username;
+                  if(password_verify($password ,$row['password'])){
+                    $_SESSION['username'] = $username;
                     ?>
                     <script>
                         swal({
                             title: "Login Successful",
-                            text: "Welcome to our Beverage website",
+                            text: "Welcome to our website",
                             icon: "success",
                         });
                         location.replace("index.php?uid=<?php echo $row['uid'];?>");
@@ -46,7 +46,7 @@ error_reporting(E_ERROR | E_PARSE);
                         ?>
                     <script>
                         swal({
-                            title: "Incorrect Password",
+                            title: "Wrong Password",
                             text: "Try again with correct password",
                             icon: "warning",
                         });
@@ -94,10 +94,10 @@ error_reporting(E_ERROR | E_PARSE);
   <form class="modal-content" method="post">
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="loginUsername" required>
+      <input type="text" placeholder="Enter Username" name="loginUser" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="loginPassword" required>
+      <input type="password" placeholder="Enter Password" name="Password" required>
         
       <button type="submit" name="login">Login</button>
       <label>

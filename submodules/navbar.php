@@ -13,7 +13,7 @@
         <ul class="nospace">
           <li><a href="index.php"><i class="fa fa-lg fa-home"></i></a></li>
           <?php
-                    if (isset($_SESSION["uname"])) {
+                    if (isset($_SESSION["username"])) {
                         echo "<li>";
                         echo "<a class='nitem' href='logout.php'>Logout</a>";
                         echo "</li>";
@@ -49,6 +49,7 @@
           <li><a href="non-alcoholic.php">Non-Alcoholic </a></li>
           <li><a  href="cart.php">Cart </a></li>
           <li><a href="contact.php">Contact</a></li>
+
         </ul>
       </nav>
     </header>

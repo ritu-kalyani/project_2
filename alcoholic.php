@@ -39,7 +39,7 @@ require_once "submodules/_dbconnect.php";
 
 
 
-  $products = $conn->query("SELECT * from product where category = 'Alcoholic' ");
+  $products = $conn->query("SELECT * from Products_menu where category = 'Alcoholic' ");
 
   if ($products== True) {
     while ($row = $products->fetch_assoc()) {

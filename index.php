@@ -27,7 +27,7 @@
     // echo "<footer><a class='btn' href='alcoholic.php'>See More &raquo;</a></footer>";
     echo "</article>";
 
-  $products = $conn->query("SELECT * from product where category = 'Alcoholic' limit 3");
+  $products = $conn->query("SELECT * from Products_menu where category = 'Alcoholic' limit 3");
 
   if ($products== True) {
     while ($row = $products->fetch_assoc()) {
@@ -79,7 +79,7 @@
     // echo "<footer><a class='btn' href='non-alcoholic.php'>See More &raquo;</a></footer>";
     echo "</article>";
 
-    $products = $conn->query("SELECT * from product where category = 'Non-alcoholic' limit 3");
+    $products = $conn->query("SELECT * from Products_menu where category = 'Non-alcoholic' limit 3");
 
   if ($products== True) {
     while ($row = $products->fetch_assoc()) {
@@ -118,7 +118,7 @@
   echo "<p class='btmspace-30'>This is our bestselling drinks across the globe.</p>";
   echo "</article>";
 
-  $products = $conn->query("SELECT * from product limit 3 ");
+  $products = $conn->query("SELECT * from Products_menu limit 3 ");
 
   if ($products== True) {
     while ($row = $products->fetch_assoc()) {
