@@ -24,7 +24,7 @@
     echo "<article class='one_quarter first Fst_manu'>";
     echo "<h5 class='heading font-x3'>Alcoholic drink</h5>";
     echo "<p class='btmspace-30'>Discover the first core release from the Ayrshire distillery.</p>";
-    echo "<footer><a class='btn' href='alcoholic.php'>See More &raquo;</a></footer>";
+    // echo "<footer><a class='btn' href='alcoholic.php'>See More &raquo;</a></footer>";
     echo "</article>";
 
   $products = $conn->query("SELECT * from product where category = 'Alcoholic' limit 3");
@@ -76,7 +76,7 @@
     echo "<article class='one_quarter first Fst_manu'>";
     echo "<h5 class='heading font-x3'>Non-alcoholic drink</h5>";
     echo "<p class='btmspace-30'>Discover the first core release from the Ayrshire distillery.</p>";
-    echo "<footer><a class='btn' href='non-alcoholic.php'>See More &raquo;</a></footer>";
+    // echo "<footer><a class='btn' href='non-alcoholic.php'>See More &raquo;</a></footer>";
     echo "</article>";
 
     $products = $conn->query("SELECT * from product where category = 'Non-alcoholic' limit 3");

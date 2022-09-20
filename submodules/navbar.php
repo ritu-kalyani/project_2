@@ -44,8 +44,10 @@
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="index.php">Home</a></li>
-          <li><a  href="cart.php">Cart </a></li>
           <li><a href="about.php">About </a></li>
+          <li><a href="alcoholic.php">Alcoholic </a></li>
+          <li><a href="non-alcoholic.php">Non-Alcoholic </a></li>
+          <li><a  href="cart.php">Cart </a></li>
           <li><a href="contact.php">Contact</a></li>
         </ul>
       </nav>
